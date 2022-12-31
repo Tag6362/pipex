@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 22:05:37 by tgernez           #+#    #+#             */
-/*   Updated: 2022/12/31 17:31:27 by tgernez          ###   ########.fr       */
+/*   Updated: 2022/12/31 17:55:32 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		is_av_correct(int ac, char **av);
 char	**find_paths(char **envp);
 
 /* Entry */
-char *read_file(char *file_name);
+char *read_entry(int entry, char *file_name);
 
 /* Tests */
 int		test_1(void);

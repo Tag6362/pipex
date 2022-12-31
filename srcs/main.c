@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:30:16 by tgernez           #+#    #+#             */
-/*   Updated: 2022/12/31 17:38:39 by tgernez          ###   ########.fr       */
+/*   Updated: 2022/12/31 17:49:26 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ Out: Char *, NOT mallocated	-if founds the Working Directory, returns the absolu
 // 	}
 // 	return ("");
 // }
+
 char	*princ(int ac, char **av, char **envp)
 {
 	char	*res;
@@ -49,7 +50,7 @@ char	*princ(int ac, char **av, char **envp)
 		return ("Problem in arguments!\n");
 	entry = input_mode(av);
 	paths = find_paths(envp);
-	content = read_file(av[1]);
+	content = read_entry(entry, av[1]);
 	ft_printf("%s\n", content);
 	if (paths)
 		ft_free_strs(paths);
