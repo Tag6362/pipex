@@ -76,6 +76,8 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+char	*ft_strstr(const char *haystack, const char *needle);
+void	*ft_free_strs(char **strs);
 /* PRINTF */
 int		ft_printf(const char *placeholders, ...);
 /*PRINTERS*/

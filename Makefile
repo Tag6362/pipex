@@ -6,7 +6,7 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2022/12/02 23:06:11 by tgernez          ###   ########.fr        #
+#    Updated: 2022/12/29 15:34:19 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ DIRSRCS 		= srcs/
 SRCS 			=	$(addsuffix ${FTSRCS},	\
 					$(addprefix ${DIRSRCS},	\
 					main \
+					parsing \
+					tests \
 					))
 INCLUDES		= -Iincludes
 LIBFTDIR		= libft
@@ -66,7 +68,7 @@ ${NAME}: ${OBJS} ${LIBFTDIR}/libft.a
 	@${CC} ${OBJS} ${INCLUDES} -L${LIBFTDIR} ${LIBFTLIB} -o $@
 
 sanitize: ${OBJS} ${LIBFTDIR}/libft.a
-	@${CC} ${OBJS} ${INCLUDES} -L${LIBFTDIR} ${LIBFTLIB} -o fdf -g3 -fsanitize=address
+	@${CC} ${OBJS} ${INCLUDES} -L${LIBFTDIR} ${LIBFTLIB} -o pipex -g3 -fsanitize=address
 
 ${LIBFTDIR}/libft.a:
 	@make -C ${LIBFTDIR}
