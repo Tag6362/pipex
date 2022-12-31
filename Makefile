@@ -6,7 +6,7 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2022/12/31 17:20:36 by tgernez          ###   ########.fr        #
+#    Updated: 2022/12/31 17:21:10 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ ${LIBFTDIR}/libft.a:
 
 safe:
 	git add .
-	git commit -m "AUTOSAFEGARD"
+	git commit -m "SEMIAUTO-SAFEGUARD"
 	git push
 
 #----------------------------PIPEX

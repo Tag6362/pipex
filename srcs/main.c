@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:30:16 by tgernez           #+#    #+#             */
-/*   Updated: 2022/12/31 17:15:10 by tgernez          ###   ########.fr       */
+/*   Updated: 2022/12/31 17:38:39 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*princ(int ac, char **av, char **envp)
 	char	*res;
 	int		entry;
 	char	**paths;
+	char	*content;
 
 	if (ac < 5 || !av)
 		return("Wrong argument number!\n");
@@ -48,7 +49,12 @@ char	*princ(int ac, char **av, char **envp)
 		return ("Problem in arguments!\n");
 	entry = input_mode(av);
 	paths = find_paths(envp);
-
+	content = read_file(av[1]);
+	ft_printf("%s\n", content);
+	if (paths)
+		ft_free_strs(paths);
+	if (content)
+		free(content);
 	res = NULL; // SILENCER
 	return (res);
 }
