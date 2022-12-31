@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:30:16 by tgernez           #+#    #+#             */
-/*   Updated: 2022/12/29 16:18:44 by tgernez          ###   ########.fr       */
+/*   Updated: 2022/12/31 16:44:32 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,48 @@ Out: Char *, NOT mallocated	-if founds the Working Directory, returns the absolu
 // 	}
 // 	return ("");
 // }
-
 char	*princ(int ac, char **av, char **envp)
 {
 	char	*res;
 	int		entry;
 
-	if (ac < 6 || !av)
+	if (ac < 5 || !av)
 		return("Wrong argument number!\n");
-	if (!envp)
+	if (!envp || !(*envp))
 		return ("Problem in environment!\n");
-	entry = input_mode(ac, av);
+	if (!is_av_correct(ac, av))
+		return ("Problem in arguments!\n");
+	entry = input_mode(av);
+	
+	res = NULL; // SILENCER
+	// ft_printf("tout va bien \n");
 	return (res);
 }
 
-int	main(void)
+int	main(int ac, char **av, char **envp)
 {
+	(void)ac;
+	(void)av;
+	int	i;
+
+	i = 0;
+	while (envp[i])
+	{
+		ft_printf("%s\n", envp[i]);
+		i++;
+	}
+	
 	test_1();
 	test_2();
 	test_3();
+	test_4();
+	test_5();
+	test_6();
+	test_7();
+	test_8();
+	test_9();
+	test_10();
+	test_11();
 	return (0);
 }
 
