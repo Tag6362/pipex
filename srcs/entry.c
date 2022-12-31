@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:18:27 by tgernez           #+#    #+#             */
-/*   Updated: 2022/12/31 17:55:59 by tgernez          ###   ########.fr       */
+/*   Updated: 2022/12/31 17:57:20 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ static char	*read_file(char *file_name)
 	while (tmp)
 	{
 		//Can be optimized
+		//Not tested
 		tmp2 = ft_strdup(file_content);
 		free(file_content);
 		file_content = ft_strjoin(tmp2, tmp);
