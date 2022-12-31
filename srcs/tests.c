@@ -320,3 +320,33 @@ int test_11(void)
 		return(ft_printf("\033[1;32msuccess\033[0m!\n"), 1);
 	return (ft_printf("\033[1;31mfailure\033[0m!\n"), 0);
 }
+
+int test_12(void)
+{
+	int		ac;
+	char	**av;
+	char	**envp;
+	int		val;
+
+	ft_printf("Basic Test 12: Normal test (2 files, 2 commands)...");
+	ac = 5;
+
+	av = malloc(sizeof(char *) * 7);
+	av[0] = ft_strdup("pipex");
+	av[1] = ft_strdup("infile");
+	av[2] = ft_strdup("ls -l");
+	av[3] = ft_strdup("wc -l");
+	av[4] = ft_strdup("outfile");
+	av[5] = NULL;
+
+	envp = malloc(sizeof(char *) * 2);
+	envp[0] = ft_strdup("PATH=/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin");
+	envp[1] = NULL;
+
+	val = ft_strncmp(princ(ac,av, envp), "Problem in arguments!\n", 10000);
+	ft_free_strs(av);
+	ft_free_strs(envp);
+	if (val == 0)
+		return(ft_printf("\033[1;32msuccess\033[0m!\n"), 1);
+	return (ft_printf("\033[1;31mfailure\033[0m!\n"), 0);
+}

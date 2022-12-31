@@ -6,7 +6,7 @@
 #    By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/19 17:41:24 by tgernez           #+#    #+#              #
-#    Updated: 2022/12/29 15:34:19 by tgernez          ###   ########.fr        #
+#    Updated: 2022/12/31 17:20:36 by tgernez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ DIRSRCS 		= srcs/
 SRCS 			=	$(addsuffix ${FTSRCS},	\
 					$(addprefix ${DIRSRCS},	\
 					main \
+					entry \
 					parsing \
 					tests \
 					))
@@ -72,6 +73,11 @@ sanitize: ${OBJS} ${LIBFTDIR}/libft.a
 
 ${LIBFTDIR}/libft.a:
 	@make -C ${LIBFTDIR}
+
+safe:
+	git add .
+	git commit -m "AUTOSAFEGARD"
+	git push
 
 #----------------------------PIPEX
 

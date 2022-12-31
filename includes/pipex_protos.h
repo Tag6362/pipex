@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 22:05:37 by tgernez           #+#    #+#             */
-/*   Updated: 2022/12/31 15:11:51 by tgernez          ###   ########.fr       */
+/*   Updated: 2022/12/31 17:11:43 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ char	*princ(int ac, char **av, char **envp);
 /* Parsing */
 int		input_mode(char **av);
 int		is_av_correct(int ac, char **av);
+char	**find_paths(char **envp);
 
 /* Tests */
 int		test_1(void);
@@ -33,5 +34,6 @@ int		test_8(void);
 int		test_9(void);
 int		test_10(void);
 int		test_11(void);
+int		test_12(void);
 
 #endif

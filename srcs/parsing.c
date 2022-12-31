@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 13:39:37 by tgernez           #+#    #+#             */
-/*   Updated: 2022/12/31 15:36:18 by tgernez          ###   ########.fr       */
+/*   Updated: 2022/12/31 17:14:49 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	input_mode(char **av)
 		-the commands are empty (no matter their position in the pipe line)
 	In:
 		-int ac: arguments number
-	Out:
+	Out: int
 		-0 if problem
 		-1 if correct
 */
@@ -53,4 +53,28 @@ int is_av_correct(int ac, char **av)
 	if (i != ac)
 		return (0);	
 	return (1);
+}
+
+/*
+	Find Paths
+	This function will return a list of strings containing the different folders
+	with the bash command scripts
+	In:
+		-char **envp: Environment Pointer
+	Out: char **
+		-NULL: nothing / error occured
+		-A table containing each path
+*/
+char	**find_paths(char **envp)
+{
+	int		i;
+	char	**paths;
+
+	i = 0;
+	while (envp[i] && !ft_strstr(envp[i], "PATH"))
+		i++;
+	if (envp[i] == NULL)
+		return (NULL);
+	paths = ft_split(envp[i] + 5, ':');
+	return (paths);
 }
