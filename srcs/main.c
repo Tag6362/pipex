@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:30:16 by tgernez           #+#    #+#             */
-/*   Updated: 2022/12/31 17:49:26 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/01/01 17:51:15 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ char	*princ(int ac, char **av, char **envp)
 		return ("Problem in arguments!\n");
 	entry = input_mode(av);
 	paths = find_paths(envp);
-	content = read_entry(entry, av[1]);
-	ft_printf("%s\n", content);
+	content = read_entry(entry, av);
 	if (paths)
 		ft_free_strs(paths);
 	if (content)
@@ -78,7 +77,9 @@ int	main(int ac, char **av, char **envp)
 	test_10();
 	test_11();
 	test_12();
-
+	test_13();
+	test_14();
+	test_15();
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:18:27 by tgernez           #+#    #+#             */
-/*   Updated: 2022/12/31 17:57:20 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/01/01 17:57:51 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,31 @@ static char	*read_file(char *file_name)
 		-NULL: entry is empty
 		-A string containing the content of the standard input
 */
-static char	*read_standard(void)
+static char	*read_standard(char *limiter)
 {
-	return (NULL);
+	char	*entry_content;
+	char	*tmp;
+	char	*tmp2;
+	size_t	limiter_len;
+
+	limiter_len = ft_strlen(limiter);
+	ft_printf("\nheredoc> ");
+	tmp = get_next_line(0);
+	entry_content = ft_calloc(1, 1);
+	if (!tmp || !entry_content)
+		return (NULL);
+	while (ft_strncmp(tmp, limiter, limiter_len))
+	{
+		ft_printf("heredoc> ");
+		tmp2 = ft_strdup(entry_content);
+		free(entry_content);
+		entry_content = ft_strjoin(tmp2, tmp);
+		free(tmp2);
+		free(tmp);
+		tmp = get_next_line(0);
+	}
+	free(tmp);
+	return (entry_content);
 }
 
 
@@ -81,11 +103,11 @@ static char	*read_standard(void)
 		-A string containing the content of the entry
 		
 */
-char		*read_entry(int entry, char *file_name)
+char		*read_entry(int entry, char **av)
 {
 	if (entry == 1)
-		return (read_file(file_name));
+		return (read_file(av[1]));
 	else if (entry == 2)
-		return (read_standard());
+		return (read_standard(av[2]));
 	return (NULL);
 }
