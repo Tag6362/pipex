@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:30:16 by tgernez           #+#    #+#             */
-/*   Updated: 2023/01/01 17:51:15 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/01/01 18:00:44 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /*
 Get Working Directory
 In: Char **envp, environment
-Out: Char *, NOT mallocated	-if founds the Working Directory, returns the absolute path to it
+Out: Char *, NOT mallocated	
+			-if founds the Working Directory, returns the absolute path to it
 			-if not found, returns NULL
 */
 // static char	*ft_gwd(char **envp)
@@ -43,7 +44,7 @@ char	*princ(int ac, char **av, char **envp)
 	char	*content;
 
 	if (ac < 5 || !av)
-		return("Wrong argument number!\n");
+		return ("Wrong argument number!\n");
 	if (!envp || !(*envp))
 		return ("Problem in environment!\n");
 	if (!is_av_correct(ac, av))
@@ -64,7 +65,6 @@ int	main(int ac, char **av, char **envp)
 	(void)ac;
 	(void)av;
 	(void)envp;
-	
 	test_1();
 	test_2();
 	test_3();

@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 13:39:37 by tgernez           #+#    #+#             */
-/*   Updated: 2022/12/31 17:14:49 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/01/01 18:01:44 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	input_mode(char **av)
 		-0 if problem
 		-1 if correct
 */
-int is_av_correct(int ac, char **av)
+int	is_av_correct(int ac, char **av)
 {
 	int	i;
 
@@ -51,7 +51,7 @@ int is_av_correct(int ac, char **av)
 		i++;
 	}
 	if (i != ac)
-		return (0);	
+		return (0);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:18:27 by tgernez           #+#    #+#             */
-/*   Updated: 2023/01/01 17:57:51 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/01/01 17:59:11 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ static char	*read_file(char *file_name)
 	tmp = get_next_line(fd);
 	while (tmp)
 	{
-		//Can be optimized
-		//Not tested
 		tmp2 = ft_strdup(file_content);
 		free(file_content);
 		file_content = ft_strjoin(tmp2, tmp);
@@ -89,7 +87,6 @@ static char	*read_standard(char *limiter)
 	return (entry_content);
 }
 
-
 /*
 	Read Entry
 	This function will be able to choose whether Read File if the input is a
@@ -103,7 +100,7 @@ static char	*read_standard(char *limiter)
 		-A string containing the content of the entry
 		
 */
-char		*read_entry(int entry, char **av)
+char	*read_entry(int entry, char **av)
 {
 	if (entry == 1)
 		return (read_file(av[1]));
