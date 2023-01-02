@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 13:39:37 by tgernez           #+#    #+#             */
-/*   Updated: 2023/01/02 17:24:09 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/01/02 17:36:45 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,20 @@ int	input_mode(char **av)
 	return (1);
 }
 
-
-static int check_files(int ac, char **av)
+static int	check_files(int ac, char **av)
 {
-	char	*illegals;
-
-	illegals = ft_strdup("#%&{}\\$!\'\":@<>*?/ +`|=");
-	
-	if (av[1][0] == '\0' || av[ac - 1][0] == '\0')
+	if (av[1][0] == '\0' || av[ac - 1][0] == '\0' || access(av[1], F_OK) != 0)
+	{
+		ft_printf("zsh: no such file or directory: %s\n", av[1]);
 		return (0);
-	if (ft_cset_in_str(illegals, av[1]) || ft_cset_in_str(illegals, av[ac - 1]))
-		return (0);
-	if (access(av[1], F_OK) != 0)
-		return (0);
+	}
 	return (1);
 }
 
-static int check_commands(int ac, char **av)
+static int	check_commands(int ac, char **av)
 {
+	(void) ac;
+	(void) av;
 	return (1);
 }
 
@@ -62,7 +58,7 @@ static int check_commands(int ac, char **av)
 */
 int	is_av_correct(int ac, char **av)
 {
-	if (check_files && check_commands)	
+	if (check_files(ac, av) && check_commands(ac, av))
 		return (1);
 	return (0);
 }
