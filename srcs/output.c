@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 16:02:58 by tgernez           #+#    #+#             */
-/*   Updated: 2023/01/02 16:37:12 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/01/02 17:07:35 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 	Out: int
 		-the file descriptor, with the correct writing method
 */
-int	file_existence(int entry, char *filename)
+static int	file_existence(int entry, char *filename)
 {
 	if (entry == 1)
 	{
@@ -46,4 +46,32 @@ int	file_existence(int entry, char *filename)
 			return (open(filename, O_APPEND | O_WRONLY));	
 	}
 	return (open(filename, O_CREAT | O_WRONLY));
+}
+
+/*
+	Output To File
+	This function takes the Output of the command line and puts it in a file
+	with the correct writing mode, and closes the file
+	In:
+		-int entry
+			-1 if entry on file
+			-2 if entry on here_doc (standard input)
+		-char *filaname: a string containing the file of the file where the
+						 output of the programme will be stored.
+	Out:
+		-(-1) if filename OR output is/are NULL
+		-1 if evertything went fine
+*/
+int ouput_to_file(int entry, char *filename, char *output)
+{
+	int	fd;
+
+	if (!filename || !output)
+		return (-1);
+	fd = -1;
+	while (fd == -1)
+		fd = file_existence(entry, filename);
+	ft_putstr_fd(output, fd);
+	close(fd);
+	return (1);
 }

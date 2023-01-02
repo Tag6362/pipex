@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:18:27 by tgernez           #+#    #+#             */
-/*   Updated: 2023/01/02 16:08:15 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/01/02 17:09:59 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,10 @@ static char	*read_standard(char *limiter)
 char	*read_entry(int entry, char **av)
 {
 	if (entry == 1)
-		return (read_file(av[1]));
+	{
+		if (access(av[1], F_OK) == 0)
+			return (read_file(av[1]));
+	}
 	else if (entry == 2)
 		return (read_standard(av[2]));
 	return (NULL);

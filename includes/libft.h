@@ -78,6 +78,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*ft_strstr(const char *haystack, const char *needle);
 void	*ft_free_strs(char **strs);
+char	ft_cset_in_str(char *charset, char *str);
 /* PRINTF */
 int		ft_printf(const char *placeholders, ...);
 /*PRINTERS*/

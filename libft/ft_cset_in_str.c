@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_cset_in_str.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/22 16:53:02 by tgernez           #+#    #+#             */
-/*   Updated: 2023/01/02 17:29:54 by tgernez          ###   ########.fr       */
+/*   Created: 2023/01/02 17:24:27 by tgernez           #+#    #+#             */
+/*   Updated: 2023/01/02 17:27:46 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include "fcntl.h"
-# include "libft.h"
-# include "pipex_protos.h"
-# include "pipex_structs.h"
+char	ft_cset_in_str(char *charset, char *str)
+{
+	int	i;
+	int	j;
 
-
-#endif
+	i = 0;
+	j = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (charset[j])
+		{
+			if (str[i] == charset[j])
+				return (str[i]);
+			j++;
+		}
+		i++;
+	}
+	return ('\0');
+}
