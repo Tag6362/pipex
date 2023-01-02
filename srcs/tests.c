@@ -415,7 +415,7 @@ int test_15(void)
 	av[5] = ft_strdup("outfile");
 	av[6] = NULL;
 
-	ft_printf("\033[1;35mMANUAL TEST: please type what you want, then type 'EOF' and hit 'Return', check if it matches what you typed\033[0m!");
+	ft_printf("\033[1;35mMANUAL TEST: please type what you want, then hit 'Return' twice, check if it matches what you typed\033[0m!");
 	content = read_entry(2, av);
 	ft_printf("\033[1;34m%s\033[0m", content);
 	free(content);
