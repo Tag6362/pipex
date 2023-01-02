@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:18:27 by tgernez           #+#    #+#             */
-/*   Updated: 2023/01/02 15:58:31 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/01/02 16:08:15 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ static char	*read_standard(char *limiter)
 	In:
 		-int entry:
 			-1 if entry on file
-			-2 if entry on standard input
+			-2 if entry on here_doc (standard input)
 	Out: char *
 		-NULL if empty / error / not found
 		-A string containing the content of the entry
