@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 13:39:37 by tgernez           #+#    #+#             */
-/*   Updated: 2023/01/03 17:22:36 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/01/03 17:32:29 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ int	input_mode(char **av)
 */
 static int	check_files(int ac, char **av)
 {
-	if (av[1][0] == '\0')
+	if (av[1][0] == '\0' || access(av[1], F_OK) != 0)
 	{
-		ft_printf("zsh: no such file or directory: %s\n", av[1]);
+		ft_printf("bash: %s: No such file or directory\n", av[1]);
 		return (0);
 	}
-	if (av[ac - 1][0] == '\0' || access(av[1], F_OK) != 0)
+	if (av[ac - 1][0] == '\0')
 	{
-		ft_printf("zsh: no such file or directory: %s\n", av[ac - 1]);
+		ft_printf("bash: %s: No such file or directory\n", av[ac - 1]);
 		return (0);
 	}
 	return (1);
@@ -68,6 +68,7 @@ static int	sub_check_commands(char **paths, char **command_full)
 	while (paths[i])
 	{
 		command = ft_strjoin(paths[i], command_full[0]);
+		ft_printf("COMMAND %s /COMMAND\n", command);
 		if (access(command, F_OK) == 0)
 		{
 			exists = i;
@@ -104,7 +105,7 @@ static int	check_commands(int ac, char **av, char **paths)
 		if (command_full[0] == NULL)
 			return (free(command_full), ft_printf("Command '' not found\n"), 0);
 		if (sub_check_commands(paths, command_full) == -1)
-			return (ft_printf("Command '%s'not found\n", command_full[0]),
+			return (ft_printf("Command '%s' not found\n", command_full[0]),
 				ft_free_strs(command_full), 0);
 		ft_free_strs(command_full);
 		i++;
@@ -153,7 +154,9 @@ char	**find_paths(char **envp)
 		i++;
 	if (envp[i] == NULL)
 		return (NULL);
-	paths = ft_split(envp[i] + 5, ':');
+	while (*(envp[i]) && '=' != *(envp[i]))
+		(envp[i])++;
+	paths = ft_split(envp[i] + 1, ':');
 	i = 0;
 	while (paths[i])
 	{
