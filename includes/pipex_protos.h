@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 22:05:37 by tgernez           #+#    #+#             */
-/*   Updated: 2023/01/01 17:51:08 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/01/03 15:37:52 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*princ(int ac, char **av, char **envp);
 
 /* Parsing */
 int		input_mode(char **av);
-int		is_av_correct(int ac, char **av);
+int		is_av_correct(int ac, char **av, char **paths);
 char	**find_paths(char **envp);
 
 /* Entry */

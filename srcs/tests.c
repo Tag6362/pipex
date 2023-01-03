@@ -162,7 +162,7 @@ int test_6(void)
 	envp[0] = ft_strdup("PATH=/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin");
 	envp[1] = NULL;
 
-	val = ft_strncmp(princ(ac, av, envp), "Problem in arguments!\n", 10000);
+	val = !(princ(ac, av, envp) == NULL);
 	ft_free_strs(av);
 	ft_free_strs(envp);
 	if (val == 0)
@@ -192,7 +192,7 @@ int test_7(void)
 	envp[0] = ft_strdup("PATH=/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin");
 	envp[1] = NULL;
 
-	val = ft_strncmp(princ(ac,av, envp), "Problem in arguments!\n", 10000);
+	val = !(princ(ac, av, envp) == NULL);
 	ft_free_strs(av);
 	ft_free_strs(envp);
 	if (val == 0)
@@ -222,7 +222,7 @@ int test_8(void)
 	envp[0] = ft_strdup("PATH=/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin");
 	envp[1] = NULL;
 
-	val = ft_strncmp(princ(ac,av, envp), "Problem in arguments!\n", 10000);
+	val = !(princ(ac, av, envp) == NULL);
 	ft_free_strs(av);
 	ft_free_strs(envp);
 	if (val == 0)
@@ -252,7 +252,7 @@ int test_9(void)
 	envp[0] = ft_strdup("PATH=/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin");
 	envp[1] = NULL;
 
-	val = ft_strncmp(princ(ac,av, envp), "Problem in arguments!\n", 10000);
+	val = !(princ(ac, av, envp) == NULL);
 	ft_free_strs(av);
 	ft_free_strs(envp);
 	if (val == 0)
@@ -283,7 +283,7 @@ int test_10(void)
 	envp[0] = ft_strdup("PATH=/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin");
 	envp[1] = NULL;
 
-	val = ft_strncmp(princ(ac,av, envp), "Problem in arguments!\n", 10000);
+	val = !(princ(ac, av, envp) == NULL);
 	ft_free_strs(av);
 	ft_free_strs(envp);
 	if (val == 0)
@@ -314,7 +314,7 @@ int test_11(void)
 	envp[0] = ft_strdup("PATH=/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/mnt/nfs/homes/tgernez/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin");
 	envp[1] = NULL;
 
-	val = ft_strncmp(princ(ac,av, envp), "Problem in arguments!\n", 10000);
+	val = !(princ(ac, av, envp) == NULL);
 	ft_free_strs(av);
 	ft_free_strs(envp);
 	if (val == 0)
@@ -343,6 +343,7 @@ int test_12(void)
 	content = read_entry(1, av);
 	val = ft_strncmp(content, "", 10000) == 0;
 	ft_free_strs(av);
+	free(content);
 	if (val == 1)
 		return(ft_printf("\033[1;32msuccess\033[0m!\n"), 1);
 	return (ft_printf("\033[1;31mfailure\033[0m!\n"), 0);

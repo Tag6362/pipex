@@ -6,7 +6,7 @@
 /*   By: tgernez <tgernez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:30:16 by tgernez           #+#    #+#             */
-/*   Updated: 2023/01/02 17:10:45 by tgernez          ###   ########.fr       */
+/*   Updated: 2023/01/03 17:15:54 by tgernez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ char	*princ(int ac, char **av, char **envp)
 		return ("Wrong argument number!\n");
 	if (!envp || !(*envp))
 		return ("Problem in environment!\n");
-	if (!is_av_correct(ac, av))
-		return ("Problem in arguments!\n");
-	entry = input_mode(av);
 	paths = find_paths(envp);
+	if (!is_av_correct(ac, av, paths))
+		return (ft_free_strs(paths), NULL);
+	entry = input_mode(av);
 	content = read_entry(entry, av);
 	if (paths)
 		ft_free_strs(paths);
@@ -62,24 +62,25 @@ char	*princ(int ac, char **av, char **envp)
 
 int	main(int ac, char **av, char **envp)
 {
-	(void)ac;
-	(void)av;
-	(void)envp;
-	test_1();
-	test_2();
-	test_3();
-	test_4();
-	test_5();
-	test_6();
-	test_7();
-	test_8();
-	test_9();
-	test_10();
-	test_11();
-	test_12();
-	test_13();
-	test_14();
-	test_15();
+	// (void)ac;
+	// (void)av;
+	// (void)envp;
+	// test_1();
+	// test_2();
+	// test_3();
+	// test_4();
+	// test_5();
+	// test_6();
+	// test_7();
+	// test_8();
+	// test_9();
+	// test_10();
+	// test_11();
+	// test_12();
+	// test_13();
+	// test_14();
+	// test_15();
+	princ(ac, av, envp);
 	return (0);
 }
 
